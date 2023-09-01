@@ -1,6 +1,118 @@
-/*This version does not do what I expected. This only moved the symbol to the center.
+const readline = require('readline');
+
+const reader = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+
+reader.question("What would you like to calculate?", function(input){
+
+    tokens = input.split(' ');
+
+    const positionOne = parseInt(tokens[0]);
+
+    if (positionOne && typeof positionOne === 'number'){
+        mathSymbol = tokens[1];
+        num1 = Number(tokens[0]);
+        num2 = Number(tokens[2]);
+    } else {
+        mathSymbol = tokens[0];
+        num1 = Number(tokens[1]);
+        num2 = Number(tokens[2]);
+    }
+
+        if (mathSymbol === "+"){
+            console.log(num1 + num2);
+        }
+        if (mathSymbol === "-"){
+            console.log(num1 - num2);
+        }
+    
+
+    reader.close()
+    
+  });
+
+
+
+/* truthy falsy*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+function perform calculation(first position, second position results)
+    first input split assigned to mathSymbol. 
+    switch the mathSymbol - if mathSymbol matches any of the cases then print 
+
+const readline = require('readline');
+
+const reader = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function performCalculation(mathSymbol, operands) {
+    switch (mathSymbol) {
+        case "+":
+            console.log(operands.reduce((acc, num) => acc + num));
+            break;
+        case "-":
+            console.log(operands.reduce((acc, num) => acc - num));
+            break;
+        case "*":
+        case "x":
+            console.log(operands.reduce((acc, num) => acc * num));
+            break;
+        case "/":
+            console.log(operands.reduce((acc, num) => acc / num));
+            break;
+        default:
+            console.log("Invalid math symbol.");
+    }
+}
+
+function calculate() {
+    reader.question("Enter a prefix expression (Type 'exit' to quit): ", function(input) {
+        if (input.toLowerCase() === 'exit') {
+            reader.close();
+            return;
+        }
+
+        const tokens = input.split(' ');
+
+        const mathSymbol = tokens[0];
+        const operands = tokens.slice(1).map(token => Number(token));
+
+        if (operands.some(isNaN)) {
+            console.log("Invalid number input.");
+        } else {
+            performCalculation(mathSymbol, operands);
+        }
+
+        calculate();
+    });
+}
+
+calculate();
+
+
+
+
+/* Third draft. This version does not do what I expected. This only moved the symbol to the center.
 we could have completed this task by adjusting the token assignment position.
-*/
+
 const readline = require('readline');
 
 const reader = readline.createInterface({
@@ -53,7 +165,7 @@ function calculate() {
 calculate();
 
 
-
+*/
 
 
 /* Second Draft
