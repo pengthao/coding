@@ -11,6 +11,7 @@ const multiply = (num1, num2, callback) => {
   const result = num1 * num2;
   callback(result);
 }
+
 function callbackFunction(result) {
   console.log(`The product is: ${result}`);
 }
@@ -69,14 +70,19 @@ first(names, firstName => {
 
 // CODE HERE
 
+const last = (arr, cb) =>{
+    lastElement = arr[arr.length - 1];
+    return cb(lastElement);
+}
+
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// last(names, lastName => {
-//   console.log('The last name in names is ' + lastName)
-// })
+last(names, lastName => {
+   console.log('The last name in names is ' + lastName)
+ })
 
 
 
@@ -90,19 +96,25 @@ first(names, firstName => {
 */
 
 // CODE HERE 
-
+const contains = (arr, nam, cb) => {
+    if(arr.includes(nam)) {
+      cb(true)
+    } else {
+      cb(false)
+    }    
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+contains(names, 'Colt', result => {
+  if(result === true){
+    console.log('Colt is in the array')
+  } else {
+    console.log('Colt is not in the array')
+  }
+})
 
 
 
@@ -116,6 +128,25 @@ first(names, firstName => {
 
 // CODE HERE
 
+const uniq = (arr, cb) => {
+  const newArr = [];
+
+    for(let i = 0; i < arr.length; i++) {
+      let isDuplicate = false;
+
+      for(let x = 0; x <newArr.length; x++) {
+        if(arr[i] === newArr[x]) {
+          isDuplicate = true;
+          break;
+        }
+      }
+        if (!isDuplicate) {
+          newArr.push(arr[i]);
+        }
+      }
+     cb(newArr);
+  }
+  
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
   The callback function should take in one parameter called uniqArr.
@@ -124,9 +155,16 @@ first(names, firstName => {
 */
 
 // CODE HERE
+const printCB = (uniqArr) => {
+  console.log(`The new names array with all the duplicate items removed is [${uniqArr.join(", ")}].`)
+}
 
+uniq(names, printCB);
 
-
+// uniq(names, (newArr) => {
+//   console.log(`The new names array with all the duplicates removed is [${newArr.join(", ")}].`);
+// });
+ 
 ////////// PROBLEM 6 //////////
 
 /* 
@@ -135,7 +173,11 @@ first(names, firstName => {
 */
 
 // CODE HERE 
-
+const eachName = (arr, cb) => {
+  arr.forEach((element, index) => {
+    cb(element, index)
+  });
+}
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -145,7 +187,9 @@ first(names, firstName => {
 */
 
 // CODE HERE
-
+eachName(names, (item, index) => {
+  console.log(`The item at index [${index}] is [${item}]`)
+})
 
 
 
@@ -171,6 +215,8 @@ first(names, firstName => {
 */
 
 // CODE HERE
+const addingFactory = num => (add = num2 => num + num2);
+
 
 /*
   Now that you have addingFactory, you can create other
@@ -185,6 +231,9 @@ first(names, firstName => {
 */
 
 // CODE HERE
+const addTen = addingFactory(10);
+
+
 
 /*
   Now the inner function is stored in the addTen variable! 
@@ -197,7 +246,7 @@ first(names, firstName => {
 */
 
 // CODE HERE
-
+console.log(addTen(15));
 /*
   Let's make another function from the addingFactory. 
 
@@ -210,14 +259,15 @@ first(names, firstName => {
 */
 
 // CODE HERE
+const addFavNum = addingFactory(17);
 
-
-
+console.log(addFavNum(740));
 
 ////////// CHALLENGE 2 //////////
 
 /*
-  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
+  Write a function called getUserById that takes in three parameters:
+   an array of objects (users), an id and a callback, and searches for the user with a matching id.
   When the correct user object is found, invoke the callback with the user object as an argument.
   You'll learn about objects in our next lecture. But you can research objects and attempt this problem.
 */
@@ -247,12 +297,36 @@ var users = [
 
 // CODE HERE 
 
+const getUserById = (arr, id, cb) => {
+  arr.forEach(elem => {
+    if(elem.id === id) {
+      cb(elem)
+    }
+  })
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-/* getUserById(users, '16t', user => {
+ getUserById(users, '16t', user => {
   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-}) */
+}) 
+
+
+
+
+const numbers = [1,2,3,4,5];
+
+const calculateAverage = (arr) => {
+  let sum = 0
+  let arrlength = arr.length
+  arr.forEach(element => {
+    sum += element
+  });
+  return sum/arrlength
+}
+
+const average = calculateAverage(numbers)
+console.log(average)

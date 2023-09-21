@@ -85,8 +85,10 @@ let prices = [50, 33, 78, 100, 25]
 // ***** Do not edit the code above *****
 
 /* 
-Write a function called 'pricesPlusTax' that takes 2 params: an array ('prices' array) and a callback function. Inside the function, loop over the 'prices' array. For every iteration,
- calculate a new total cost (original price plus 20% tax), then push it to the 'totalCost' array. After the loop, invoke the callback function, passing in the 'totalCost' array.
+Write a function called 'pricesPlusTax' that takes 2 params: an array ('prices' array) and a callback function.
+ Inside the function, loop over the 'prices' array. For every iteration,
+ calculate a new total cost (original price plus 20% tax), then push it to the 'totalCost' array. 
+ After the loop, invoke the callback function, passing in the 'totalCost' array.
 */
 
 // CODE HERE
@@ -101,15 +103,18 @@ const pricesPlusTax = (arr, cb) => {
     cb(totalCost);
 }
 
-const printTotalCost = (totalCost) => console.log(`Total costs with Tax, ${totalCost}`)
+const printPrices = (x) => console.log(`The new array plus tax = ${x}`)
 
-console.log(printTotalCost)
+pricesPlusTax(prices, printPrices);
+
 
 /* 
-Invoke the 'pricesPlusTax' function, passing in the 'prices' array and a callback function (passing in 'totalCost' as a param) that will print "The new array plus tax = [totalCost]"
+Invoke the 'pricesPlusTax' function, passing in the 'prices' array and a callback function 
+(passing in 'totalCost' as a param) that will print "The new array plus tax = [totalCost]"
 */
 
 // CODE HERE
+
 
 //console.log(pricesPlusTax(prices, totalCost));
 
@@ -118,25 +123,45 @@ Invoke the 'pricesPlusTax' function, passing in the 'prices' array and a callbac
 /* 
 A function can return another function. Let's create one!
 
-Create a function called 'multiplyingFactory' that takes a number as a param. The function returns another function that takes another number as a param. 
+Create a function called 'multiplyingFactory' that takes a number as a param. 
+The function returns another function that takes another number as a param. 
 
-The inner function should run this logic: if the first number passing in is greater than and equal to 5, print the multiplication of the first and second numbers. If not, print "Cannot multiply: the first number is smaller than 5." 
+The inner function should run this logic: 
+if the first number passing in is greater than and equal to 5, 
+print the multiplication of the first and second numbers. 
+If not, print "Cannot multiply: the first number is smaller than 5." 
 */
 
 // CODE HERE
+
+const multiplyingFactory = (num) => {
+   
+   return function innermult(num2) {
+        if(num >= 5) {
+            return num * num2
+        } else {
+            console.log('Cannot multiply: the first number is smaller than 5.')
+        };
+    }
+    
+}
 
 
 /* 
-Let's invoke the 'multiplyingFactory' function that will return another function, and save it into a variable called 'timesFour.' Let's pass in number 3 as a param.
+Let's invoke the 'multiplyingFactory' function that will return another function, and save it into a variable called 'timesFour.'
+ Let's pass in number 3 as a param.
 */
 
 // CODE HERE
+const timesFour = multiplyingFactory(5)
 
+console.log(timesFour(4))
 
 /* 
 Now, timesFour is the new function (the inner function that was being returned when we invoked 'multiplyingFactory' function). The number 3 that we passed in as a first number is now saved in the 'timesFour' function. 
 
-Let's invoke 'timesFour' and pass in number 4 as a param. Number 4 here is the second number that will multiply the first number (number 3).
+Let's invoke 'timesFour' and pass in number 4 as a param.
+ Number 4 here is the second number that will multiply the first number (number 3).
 
 Run the code in node to see the printed result. You should see "Cannot multiply: the first number is smaller than 5."
 */
