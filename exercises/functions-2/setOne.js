@@ -16,49 +16,94 @@ The code above is an example of 'function declaration.' Please re-write the func
 
 // RE-WRITE THE ABOVE FUNCTION IN 'FUNCTION EXPRESSION' SYNTAX HERE.
 
+const findGrapeE = function(arr) {
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i].color === "purple") {
+            return console.log(`The fruit with index ${arr.indexOf(arr[i])} is a grape`)
+        } 
+    }
+}
 
 
 // RE-WRITE THE ABOVE FUNCTION IN 'ARROW FUNCTION' SYNTAX HERE.
 
+const findGrapeA = (arr) => {
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i].color === "purple") {
+            return console.log(`The fruit with index ${arr.indexOf(arr[i])} is a grape`)
+        } 
+    }
+}
 
 
 ////////// PROBLEM 2 //////////
 /*
-Write a one line function (give a name of your choice) with an implicit return that when the function is invoked, it will print: 'The first parameter is [parameter1]. The second parameter is [parameter2]'.
+Write a one line function (give a name of your choice) with an implicit return that when the function is invoked, 
+it will print: 'The first parameter is [parameter1]. The second parameter is [parameter2]'.
+
+implicit function will return the function as the result of the function but will not log it. Need to explicitly write out console.log
+for it to print.
 */
 
 // CODE HERE
 
+const lineFunction = (par1, par2) =>`The first parameter is ${par1}. The second parameter is ${par2}.`
+
+console.log(lineFunction('foo', 'bar'))
 
 // INVOKE THE FUNCTION HERE. THE PARAMETERS TAKE ANY DATATYPE.
 
 
 ////////// PROBLEM 3 //////////
 /*
-Write a function called 'greeting' that takes 3 parameters: firstName, lastName, and a callback function. In the function, invoke the callback, passing in a concatenation of firstName and lastName. 
-Then, outside of the greeting function, invoke the greeting function, passing in the value firstName and lastName of your choice, and a callback function that takes a parameter of fullName. The callback function will print 'Hello, my full name is [fullName]'. 
+Write a function called 'greeting' that takes 3 parameters: firstName, lastName, and a callback function. 
+In the function, invoke the callback, passing in a concatenation of firstName and lastName. 
+Then, outside of the greeting function, invoke the greeting function, passing in the value firstName and lastName of your choice, 
+and a callback function that takes a parameter of fullName. The callback function will print 'Hello, my full name is [fullName]'. 
 */
 
 // CODE 'GREETING FUNCTION' HERE
 
+const greeting = (firstName, lastName, callBack) => {
+    const fullName = firstName + " " + lastName;
+    callBack(fullName);
+}
+
+const printGreeting = (fullName) => {
+    console.log(`Hello, my full name is ${fullName}.`);
+}
 
 // INVOKE 'GREETING FUNCTION' HERE
-
+greeting('Peng', 'Thao', printGreeting);
 
 ////////// PROBLEM 4 //////////
 
 // ***** Do not edit the code below *****
 let prices = [50, 33, 78, 100, 25]
 
-let totalCost = []
+
 // ***** Do not edit the code above *****
 
 /* 
-Write a function called 'pricesPlusTax' that takes 2 params: an array ('prices' array) and a callback function. Inside the function, loop over the 'prices' array. For every iteration, calculate a new total cost (original price plus 20% tax), then push it to the 'totalCost' array. After the loop, invoke the callback function, passing in the 'totalCost' array.
+Write a function called 'pricesPlusTax' that takes 2 params: an array ('prices' array) and a callback function. Inside the function, loop over the 'prices' array. For every iteration,
+ calculate a new total cost (original price plus 20% tax), then push it to the 'totalCost' array. After the loop, invoke the callback function, passing in the 'totalCost' array.
 */
 
 // CODE HERE
+const pricesPlusTax = (arr, cb) => {
+    const totalCost = []
+    for(let i=0; i<arr.length; i++) {
+        const originalPrice = arr[i];
+        const tax = originalPrice * .2;
+        const totalPrice = originalPrice + tax;
+        totalCost.push(totalPrice);  //totalCost.push(arr[i] * 1.2)
+    }
+    cb(totalCost);
+}
 
+const printTotalCost = (totalCost) => console.log(`Total costs with Tax, ${totalCost}`)
+
+console.log(printTotalCost)
 
 /* 
 Invoke the 'pricesPlusTax' function, passing in the 'prices' array and a callback function (passing in 'totalCost' as a param) that will print "The new array plus tax = [totalCost]"
@@ -66,6 +111,7 @@ Invoke the 'pricesPlusTax' function, passing in the 'prices' array and a callbac
 
 // CODE HERE
 
+//console.log(pricesPlusTax(prices, totalCost));
 
 ////////// PROBLEM 5 //////////
 
