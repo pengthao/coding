@@ -162,7 +162,7 @@ each time it splits it will look through the split array tolowercase the first w
 const copyArrAndChange = (arr,cb) => {
   let result = [];
   for (let i = 0; i < arr.length; i++) {
-    let newValue = cb(arr[i])
+    let newValue = (cb(arr[i]))
     result.push(newValue)
   }
   return result
