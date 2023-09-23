@@ -38,3 +38,27 @@ const wordCheckRev = (word) => {
 
 wordCheckRev('hello')
 wordCheckRev('racecar')
+
+
+//chatgpt
+
+function isPalindrome(word) {
+    word = word.replace(/\s+/g, '');
+    let left = 0;
+    let right = word.length - 1;  
+    while (left < right) {
+        if (word[left] !== word[right]) {
+            console.log(`${word} is not a palindrome.`)
+            return false;
+        }
+        left++;
+        right--;
+    }
+    console.log(`${word} is a palindrome.`)
+    return true;
+}
+isPalindrome('a')
+isPalindrome('noon')
+isPalindrome('hello')
+isPalindrome('Racecar')
+isPalindrome('racecar')
