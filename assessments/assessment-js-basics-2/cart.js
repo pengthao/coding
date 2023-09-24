@@ -35,8 +35,9 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((total, elem) => total += elem.price,0)
 
+console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -55,7 +56,12 @@ const cart = [
 
 //CODE HERE
 
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    const total = cartTotal * (1+tax) - couponValue;
+    return total.toFixed(2);
+}
 
+console.log(calcFinalPrice(58, 15, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -80,6 +86,18 @@ const cart = [
 /*
     TEXT ANSWER HERE
 
+customer uniqueId - I'm not really sure for this one. I said numbers originally because I thought
+it is easier to have an index + 1 for the next customer created but some googling brought me to UUID4 
+uniqueID generator functions that produce strings.
+
+customer name - string: typically made up of alphabet characters
+customer address - string: addresses typically contain a mix of numerical and alphabetical characters
+customer payment info - credit card numbers are typically all numbers
+customer first purchase date - string: can convert this string to a date object when needed
+customer most recent purchase date - string:can convert this string to a date object when needed
+customer purchase history - array: we can push objects purchased in the past into this array
+
+
 */
 
 /*
@@ -88,3 +106,34 @@ const cart = [
 */
 
 //CODE HERE
+
+const customers = [
+    {
+        uniqueId:1,
+        name:'Peng',
+        address: '123 fake street',
+        paymentInfo: 12345689,
+        firstPurchaseDate:'2023-09-10',
+        mostRecentPurchaseDate:'2023-09-23',
+        purchaseHistory: [
+            {
+                itemName:'Playstation 5 Console',
+                itemId: 1561231,
+                category: 'Video Games',
+                price: 500,
+                quantity: 1,
+                purchaseDate:'2023-09-10'
+            },
+            {
+                itemName:'Marvel Spider-Man',
+                itemId: 1515569,
+                category: 'Video Games',
+                price: 60,
+                quantity: 1,
+                purchaseDate:'2023-09-10'
+            }
+        ]
+    }
+]
+
+

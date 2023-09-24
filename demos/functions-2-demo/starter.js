@@ -75,6 +75,13 @@ const catProducts = [
 
 // CODE HERE
 
+
+
+
+
+
+
+
 const applyPercentDiscount = (product, discount) => {
   product.displayPrice = product.basePrice * (1-discount);
 }

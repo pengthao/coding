@@ -32,6 +32,14 @@
 
 //CODE HERE
 
+const pizza = {
+    name: 'pepperoni',
+    price: 15,
+    category: 'pizza',
+    popularity: 2,
+    rating: 8,
+    tags: ['pepperoni', 'single topping']
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,7 +51,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity);
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +61,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1]);
 
 /*
     Third, destructure the price off of the
@@ -63,7 +71,8 @@
 */
 
 //CODE HERE
-
+const pepPrice = pizza.price;
+console.log(pepPrice);
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +82,9 @@
 */
 
 //CODE HERE
+const pepCat = pizza.category;
 
+console.log(pepCat);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -89,8 +100,48 @@
 
 //CODE HERE
 
-
-
+let foodArr = [
+    {   
+        name: 'pepperoni',
+        price: 15,
+        category: 'pizza',
+        popularity: 2,
+        rating: 8,
+        tags: ['pepperoni', 'single topping']
+    },    
+    {   
+        name: 'cheese',
+        price: 10,
+        category: 'pizza',
+        popularity: 1,
+        rating: 9,
+        tags: ['single topping']
+    },    
+    {   
+        name: 'supreme',
+        price: 20,
+        category: 'pizza',
+        popularity: 3,
+        rating: 8,
+        tags: ['pepperoni', 'sausage', 'family', 'all toppings' ]
+    },   
+    {   
+        name: 'calzone',
+        price: 9,
+        category: 'not a pizza',
+        popularity: 8,
+        rating: 7,
+        tags: ['pizza sandwich', 'pizza dumpling']
+    },   
+    {   
+        name: 'wings',
+        price: 11,
+        category: 'chicken wings',
+        popularity: 6,
+        rating: 6,
+        tags: ['bbq', 'not pizza', 'buffalo']
+    }    
+]
 //////////////////PROBLEM 4////////////////////
 /* 
     Let's filter the food objects according
@@ -105,9 +156,9 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(elem => elem.tags.includes('single topping'));
 
-
+// console.log(filteredFood);
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -150,6 +201,20 @@
 
 //CODE HERE
 
+const filterByProperty = (property, num, type) => {
+    filterArr = []
+    filterArr = foodArr.filter((elem) => {
+        if(type ==='above') {
+            return elem[property] > num;
+        } else if (type === 'below') {
+            return elem[property] < num;
+        }
+        return false;
+    });
+    return filterArr;
+}
+
+
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +224,5 @@
 */
 
 //CODE HERE
+
+console.log(filterByProperty('price', 14, 'below'));
