@@ -80,6 +80,11 @@ console.log(canWeDeliver(511156))
 
 // CODE HERE
 
+/*I liked my design of adding an variable to set as the for loop goes through. I was happy
+with the break line i added to prevent it from turning back to false if there was a match early.
+
+I checked with ChatGPT to see if I could simplify the code and it looks like I created some extra steps.*/ 
+
 const canWeDeliverTwo = (zip, arr) => {
         let deliverCheck = false
         for(let i = 0; i < arr.length; i++) {
@@ -96,6 +101,19 @@ const canWeDeliverTwo = (zip, arr) => {
             return `Sorry, we cant deliver to that address.`;
         }
 }
+
+//chatGPT function
+function canWeDeliver3(zipCode) {
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+      if (zipCode === deliveryAreaZipCodes[i]) {
+        return "You're in our delivery zone!";
+      }
+    }
+    return "Sorry, we can't deliver to that address";
+  }
+
+console.log('canwedeliver3');
+console.log(canWeDeliver3(85205, deliveryAreaZipCodes));
 
 console.log(canWeDeliverTwo(55112, deliveryAreaZipCodes));
 
@@ -150,6 +168,9 @@ console.log(deals);
     whitespace in this string, since it seems
     to be displaying wrong on the live site.
 */
+
+/* problem 3 was informative because it taught me the syntax of indexing alongside
+.methods.*/
 
 //CODE HERE
 

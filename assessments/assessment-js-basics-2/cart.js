@@ -35,6 +35,8 @@ const cart = [
 
 //CODE HERE
 
+/* I got stuck here a little bit because I reversed the reduce parameter syntax */
+
 const summedPrice = cart.reduce((total, elem) => total += elem.price,0)
 
 console.log(summedPrice);
@@ -55,6 +57,8 @@ console.log(summedPrice);
 */
 
 //CODE HERE
+
+/* I also got stuck here a little bit because i was entering tax and couponValue arguments in the wrong place */
 
 const calcFinalPrice = (cartTotal, couponValue, tax) => {
     const total = cartTotal * (1+tax) - couponValue;

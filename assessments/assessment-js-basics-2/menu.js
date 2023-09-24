@@ -201,6 +201,8 @@ const filteredFood = foodArr.filter(elem => elem.tags.includes('single topping')
 
 //CODE HERE
 
+
+
 const filterByProperty = (property, num, type) => {
     filterArr = []
     filterArr = foodArr.filter((elem) => {
@@ -214,7 +216,24 @@ const filterByProperty = (property, num, type) => {
     return filterArr;
 }
 
+/*Upon review, I tend to like to use variables that the function sets and returns.
+I asked chatGPT to help simplify my code and it said that I didnt need to initialize the filterArr variable
+this occurred in the home.js problem 2 too. */
+/*
+const filterByProperty2 = (property, num, type) => {
+  return foodArr.filter((elem) => {
+    if (type === 'above') {
+      return elem[property] > num;
+    } else if (type === 'below') {
+      return elem[property] < num;
+    }
+    return false;
+  });
+};
 
+
+console.log(filterByProperty2('price', 14, 'below'));
+*/
 
 /*
     Invoke the `filterByProperty` function passing
