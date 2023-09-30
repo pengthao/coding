@@ -1,0 +1,39 @@
+
+
+.container {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+
+img {
+    max-width: 100px;
+}
+
+#circle {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+#rectangle {
+    height: 50px;
+    width: 150px;
+    background-color: aquamarine;
+}
+
+#square {
+    height: 50px;
+    width: 50px;
+    background-color:blueviolet;
+}

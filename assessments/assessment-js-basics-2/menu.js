@@ -53,6 +53,9 @@ const pizza = {
 //CODE HERE
 console.log(pizza.popularity);
 
+const { popularity: newName } = pizza;
+
+console.log(newName)
 /*
     Second, log the second tag in your pizza's
     tags array.

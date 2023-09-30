@@ -37,10 +37,15 @@ const cart = [
 
 /* I got stuck here a little bit because I reversed the reduce parameter syntax */
 
+const initialValue = 0;
 const summedPrice = cart.reduce((total, elem) => total += elem.price,0)
 
-console.log(summedPrice);
+const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+const reducedArray = cart.reduce(reducer, initialValue);
 
+
+console.log(summedPrice);
+console.log(reducedArray)
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
