@@ -1,0 +1,12 @@
+.allblocks {
+    display: flex;
+    flex-direction: column;
+}    
+
+.centerContainer {
+    border: 3px;
+    border-color: black;
+    height: 300px;
+    width: 800px;
+    margin: 10px
+}
