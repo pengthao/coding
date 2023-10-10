@@ -1,6 +1,55 @@
-Not implemented yet! 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <ol>
+        <li class="crumb"><a href="./home.html">Home</a></li>
+        <li class="crumb"><a href="./profile.html">Profile</a></li>
+        <li class="crumb"><a href="./about.html">About</a></li>
+      </ol>
+    </nav>
 
-<br>
-<br>
+    <div class="leftBar"><h1 id="myName">Peng Thao</h1></div>
+    <div class="rightBar">
+      <button id="exp" class="history">Experience</button>
+      <button id="interests" class="history">Interests</button>
+      <div class="dropdown">
+        <button id="favorites" class="history">Favorites</button>
+            <div id="favoritesList" class="dropdown-content">
+            <button id="color">My Favorite Color</button>
+            <button id="place">My Favorite Place</button>
+            <button id="ritual">My Favorite Ritual</button>
+            </div>
+      </div>
+      <button id="contact" class="history">Contact</button>
+    </div>
 
-<a href="./home.html"><< Back </a>
+    <div class="meat">
+      <div id="lMeat" class="child"></div>
+      <div id="rMeat" class="child"></div>
+      <div id="floating">
+        <h2>
+          Hover over favorites in the nav bar to see what some of my favorite things are.
+          <br><br>
+            This is a little blurb about me. I am awesome. Excited to learn more
+          about programming. 
+        </h2>
+      </div>
+      <img src="assets/barbie-ken.gif" id="ken" />
+    </div>
+  </body>
+  <footer class="foot">
+    <ul>
+      <a href="./home.html"><< Back </a>
+      <a href="https://github.com/pthao13/coding" class="social-button">fb</a>
+      <a href="https://github.com/pthao13/coding" class="social-button">x</a>
+      <a href="https://github.com/pthao13/coding" class="social-button">ig</a>
+    </ul>
+  </footer>
+
+  <script src="profile.js"></script>
+</html>

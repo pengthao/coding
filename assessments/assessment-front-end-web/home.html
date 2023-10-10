@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Homepage</title>
-	<link href="styles.css" rel="stylesheet">
+  <head>
+    <title>Homepage</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body id="duck2">
+    <nav>
+      <ol>
+        <li class="crumb"><a href="./home.html">Home</a></li>
+        <li class="crumb"><a href="./profile.html">Profile</a></li>
+        <li class="crumb"><a href="./about.html">About</a></li>
+      </ol>
+    </nav>
+    <br />
+    <br />
+    <div class="ducky">
+      <content>
+        <h1>Welcome to this little website.</h1>
+        Hello world! this is awesome!
+        <br />
 
-</head>
-<body>
-	<nav>
-		<ol>
-	        <li class="crumb"><a href="./home.html">Home</a></li>
-	        <li class="crumb"><a href="./profile.html">Profile</a></li>
-	        <li class="crumb"><a href="./about.html">About</a></li>
-	    </ol>
-	</nav>
+        <img src="assets/saxyDuck.jpg" id="duck" />
+        <p id="duckGreeting">Hey there! We're going to have a groovy time.</p>
+        <ul id="compliments">
+          <li>You're lookin very smooth</li>
+          <li>Duck Silver approves</li>
+          <li>Amazin'</li>
+        </ul>
 
-	<content>
-		<h1>Welcome to this little website.</h1>
-		<!-- insert hello world here -->
+        <h2>Contact Us</h2>
+        <form id="contact">
+          Your name:
+          <input type="text" id="nameInput"/>
 
-		<img src="https://devmountain.com/wp-content/uploads/2020/10/devmountain-logo3.png">
+          Message:
+          <input type="textarea" id="messageInput" />
+          How did you hear about us?
+          <br /><br />
+          <div class="checkbox-group">
+            <input type="checkbox" id="gcb" class="cb" />
+            <label for="gcb">Google</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="fcb" class="cb" />
+            <label for="fcb">A Friend</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="ocb" class="cb" />
+            <label for="ocb">Other</label>
+          </div>
+          <input type="textarea" id="otherInput" class="otherInput" />
+          <br /><br />
 
-		<h2>Contact Us</h2>
-		<form id="contact">
-			Your name:
-			<input type="text">
+          <input type="submit" />
+        </form>
+      </content>
+    </div>
 
-			Message:
-			<input type="textarea">
-
-			<input type="submit">
-
-
-		</form>
-
-	</content>
-
-
-	<script src="about.js"></script>
-
-</body>
+    <script src="about.js"></script>
+  </body>
+  <footer class="foot">
+    <ul>
+      <a href="./home.html"><< Back </a>
+      <a href="https://github.com/pthao13/coding" class="social-button">fb</a>
+      <a href="https://github.com/pthao13/coding" class="social-button">x</a>
+      <a href="https://github.com/pthao13/coding" class="social-button">ig</a>
+    </ul>
+  </footer>
 </html>

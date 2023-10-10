@@ -93,34 +93,58 @@ const ohMy = () => {
     // YOUR CODE HERE
     axios.get('http://localhost:3000/animals').then((res) => {
         console.log(res)
+
+        for (i=0; i<res.data.length; i++) {
+            let pMaker = document.createElement('p')
+            pMaker.textContent = res.data[i]
+            console.log(pMaker)
+            const  appToBody = document.querySelector("body")
+            appToBody.appendChild(pMaker)
+        }
     })
 }
 
-document.getElementById('animals-button').addEventListener('click', ohMy)
+//document.getElementById('animals-button').addEventListener('click', repeatMyParam)
 
+document.getElementById('animals-button').addEventListener('click', ohMy)
 
 // PROBLEM 6 
 /*
-    Now lets see if you can send a request param! inside repeatMyParam function below  make get request to 'http://localhost:3000/repeat/{SOMEPARAM}', but with a string instead of {SOMEPARAM}.  
+    Now lets see if you can send a request param! inside repeatMyParam function below 
+     make get request to 'http://localhost:3000/repeat/{SOMEPARAM}', but with a string 
+     instead of {SOMEPARAM}.  
 
     The function that runs when this request is made will return whatever parameter you sent 
 
-    Handle the promise returned from the request with a .then, which will take in a callback -- the callback function should print the response.data.
+    Handle the promise returned from the request with a .then, which will take in a 
+    callback -- the callback function should print the response.data.
     
-    Outside of the function, select the button with the id "repeat-button" and add a click event listener that calls the repeatMyParam function.
+    Outside of the function, select the button with the id "repeat-button" and add a 
+    click event listener that calls the repeatMyParam function.
     
     We'll be updating this function in the next problem.
 */
 
 const repeatMyParam = () => {
     //YOUR CODE HERE
+    axios.get('http://localhost:3000/repeat/data').then((res) => {
+        console.log(res)
+        let rText = document.querySelector('#repeat-text')
+        console.log(rText)
+        rText.textContent = res.data
+
+    
+        document.getElementById('repeat-text').style.display = 'block';
+    })
 }
+document.getElementById('repeat-button').addEventListener('click', repeatMyParam)
 
 // PROBLEM 7
 /*
     Now that we have the response data, let's add it to our web page! 
     
-    Inside the repeatMyParam function above, grab the element with the id of 'repeat-text' and set its textContent property equal to the response data.
+    Inside the repeatMyParam function above, grab the element with the id of 'repeat-text'
+     and set its textContent property equal to the response data.
 
     After setting the textContent, use the style method to change display to 'block'
 */
@@ -140,7 +164,20 @@ const repeatMyParam = () => {
 
 // CODE HERE
 
+const queryCaller = () => {
+    axios.get('http://localhost:3000/query-test').then ((res) => {
+        console.log(res)
+        let rText = document.querySelector('#hello-text')
+        let newBox = document.createElement('p')
+        document.getElementById('hello-text').appendChild(newBox)
+        console.log(rText)
+        newBox.textContent = res.data
+        document.getElementById('hello-text').style.display = 'block';
 
+    })
+}
+
+document.getElementById('query-button').addEventListener('click', queryCaller)
 
 ////////////////
 //INTERMEDIATE//
