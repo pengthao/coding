@@ -1,3 +1,4 @@
+
 const housesContainer = document.querySelector('#houses-container')
 const form = document.querySelector('form')
 
