@@ -39,6 +39,7 @@ function createMessage(data) {
 }
 
 function displayMessages(data) {
+  console.log(`datadisplaymessage ${data}`)
   secretMessagesContainer.innerHTML = ``
   for (let i = 0; i < data.messages.length; i++) {
       createMessage(data.messages[i])
