@@ -1,0 +1,42 @@
+
+
+
+users
+    id
+    username
+    password
+    email
+    profile_pic_url
+    allergies
+
+create table users (
+	id SERIAL Primary Key,
+	username varchar(25),
+	password varchar(50),
+	email varchar(255),
+	profile_pic_url varchar(255),
+	favorite_recipes integer[],
+	favorite_cuisine integer[],
+    allergies integer[]
+)
+
+
+Users will contain the user information. username, password, email, a picture if they like, 
+it will also contain some preferences as arrays, a list of ids of their favorite recipes,
+favorite cuisines
+and any allergies they may have - want to flag any recipes with allergens in them
+
+recipes will contain the recipe, who created it via id, title, whether it is a public recipe or private
+instructions
+
+another table will be recipe ingredients that contain a recipe id and ingredient id field and how
+many of each and what unit of measurement
+
+ingredients will contain the name of ingredient and the type. Type for filter later
+
+shopping list will contain the user-id,the ingredient id so we know what name and type are added
+to our grocery list, quantity for how much and unit for how much the recipe calls for
+
+stores table will include store names and ids for identifying what items are found in what stores
+
+fridge table will have the user id, ingredient id, how many items, 

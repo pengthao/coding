@@ -1,0 +1,60 @@
+Project Recipe creating/sharing and grocery list app
+
+users can sign into the app with their email and password
+
+users can create recipes with ingredients and instructions
+
+recipes can be marked as public or private
+
+users can view other people’s recipes
+
+ingredients from recipes can be added to user’s grocery lists
+
+users can create their own occasions and assign recipes to occasions
+
+
+home page
+    next meal
+    my planned meals - projected use of inventory (2 sets, actual and planned)
+    my recipes/saved recipes - personal favorites Star top
+    grocery list
+    fridge content - little icons
+
+    search for recipes with x ingredients
+    recipes possible with ingredients in fridge that you saved - suggested recipes with inventory meat vegetable legume etc
+    preferences - allergies
+
+
+recipe - cuisine/ broth stir fry etc/ingredient type
+spice level
+serving size
+fridge inventory
+
+
+recipe execution removes ingredients from fridge
+
+low quantity sends notification - add to grocery list
+grocery list delete items
+add required ingredients to grocery list
+
+calendar to slot in recipes
+long press finger touch drop to a day or time of day
+
+
+item - found at what store(sort by store going to?)
+bought or delete from cart
+shopping list price?
+simple grocery list
+
+question & replies
+
+essensials?
+
+what to do with condiments salt peper shaker items? seasonings
+
+half products needs modulous full ingredient list 
+
+find a recipe add it plan highlight missing ingredients add to grocery list already in list
+add to grocery list any half product will be rounded up
+
+
