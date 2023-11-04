@@ -1,3 +1,9 @@
+To see all tables
+
+SELECT * FROM information_schema.tables 
+WHERE table_schema = 'public'
+
+
 Project Recipe creating/sharing and grocery list app
 
 users can sign into the app with their email and password

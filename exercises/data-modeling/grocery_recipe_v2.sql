@@ -1,65 +1,84 @@
 
-users {
-	id integer pk increments
-	username varchar(25)
-	password varchar(50)
-	email varchar(255)
+create table users (
+	id serial primary key,
+	username varchar(25),
+	password varchar(50),
+	email varchar(255),
 	profile_pic_url varchar(255)
-	favorite_recipes integer[]
-	favorite_cuisine integer[]
-    allergies integer[]
-}
+);
 
-recipes {
-	id integer pk increments
-	user_id integer > users.id
-	title varchar(255)
-	is_public boolean
+create table recipes (
+	id serial primary key,
+	user_id integer REFERENCES users(id),
+	title varchar(255),
+	is_public boolean,
 	instructions text
-}
+);
 
-ingredients {
-	id integer pk increments
-	name varchar(255)
+create table ingredients (
+	id serial primary key,
+	name varchar(255),
 	type varchar(255)
-}
+);
 
-recipe_ingredients {
-	id integer pk increments
-	recipe_id integer > recipes.id
-	ingredient_id integer > ingredients.id
+create table recipe_ingredients (
+	id serial primary key,
+	recipe_id integer REFERENCES recipes(id),
+	ingredient_id integer REFERENCES ingredients(id),
 	quantity integer
-}
+);
 
-grocery_list {
-	id integer pk increments
-	user_id integer > users.id
-	item_name integer > ingredients.id
-	quantity integer > undefined.undefined
-	unit varchar(255)
-}
+create table stores (
+	id serial primary key,
+	store_name varchar(255),
+	ingredient_id integer REFERENCES ingredients(id)
+);
 
-stores {
-	id integer pk increments
-	store_name varchar(255)
-}
+create table shopping_list (
+	id serial primary key,
+	name integer
+);
 
-shopping_list {
-	id integer pk increments
-	user_id integer > users.id
-	item_name varchar(255)
-	quantity integer
-	unit varchar(255)
+create table user_shopping_list (
+	eventID serial primary key,
+	shopping_list_id integer REFERENCES shopping_list(id),
+	user_id integer REFERENCES users(id),
+	item_id integer REFERENCES ingredients(id),
+	quantity integer,
+	unit varchar(255),
 	is_bought boolean
-	store_id integer > stores.id
-}
+);
 
-fridge {
-	id integer pk increments
-	user_id integer > users.id
-	item_name varchar(255)
-	quantity integer
-	unit varchar
-	expiration_date date
-}
+create table fridge (
+	id serial primary key,
+	name varchar(255)
+);
 
+create table favorite_recipes (
+	id serial primary key,
+	user_id integer REFERENCES users(id),
+	recipe_id integer REFERENCES recipes(id),
+	rank integer
+);
+
+create table cuisinetypes (
+	id serial primary key,
+	type varchar(255)
+);
+
+create table user_fridge (
+	id serial primary key,
+	user_id integer REFERENCES users(id),
+	fridge_id integer REFERENCES fridge(id),
+	ingredient_id integer REFERENCES ingredients(id),
+	quantity integer,
+	unit varchar(255),
+	in_fridge boolean
+);
+
+create table favorite_cuisines (
+	id serial primary key,
+	user_id integer REFERENCES users(id),
+	cusine_id integer REFERENCES cuisinetypes(id),
+	rank integer
+)

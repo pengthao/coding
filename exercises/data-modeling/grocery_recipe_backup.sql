@@ -13,7 +13,6 @@ recipes {
 	title varchar(255)
 	is_public boolean
 	instructions text
-	cuisine_type integer *> cuisinetypes.type
 }
 
 ingredients {
@@ -32,44 +31,55 @@ recipe_ingredients {
 stores {
 	id integer pk increments
 	store_name varchar(255)
+	ingredient_id integer *> ingredients.id
 }
 
-shopping_list {
-	id integer pk increments
+user_shopping_list {
+	eventID integer pk increments
+	shopping_list_id integer > shopping_list.id
 	user_id integer > users.id
-	item_id varchar(255) > ingredients.id
+	item_id varchar(255) *> ingredients.id
 	quantity integer
 	unit varchar(255)
 	is_bought boolean
-	store_id integer > stores.id
 }
 
 fridge {
 	id integer pk increments
-	user_id integer > users.id
-	item_id varchar(255) > ingredients.id
-	quantity integer
-	unit varchar
-	expiration_date date
-	in_fridge boolean
+	name varchar(255)
 }
 
-favorites {
+favorite_recipes {
 	id integer pk increments
-	user_id integer > users.id
-	recipe_id integer > recipes.id
+	user_id integer *> users.id
+	recipe_id integer *> recipes.id
+	rank integer
 }
 
 cuisinetypes {
 	id integer pk increments
-	user_id integer > users.id
 	type varchar(255)
 }
 
-user_preferences {
+user_fridge {
+	id integer pk increments
+	user_id integer > users.id
+	fridge_id integer > fridge.id
+	ingredient_id integer *> ingredients.id
+	quantity integer
+	unit varchar(255)
+	in_fridge boolean
+}
+
+favorite_cuisines {
 	id integer pk increments
 	user_id integer *> users.id
-	preference_type varchar(255)
-	preference_value varchar(255)
+	cusine_id integer *> cuisinetypes.id
+	rank integer
+}
+
+shopping_list {
+	id integer pk increments
+	name integer
 }
 
