@@ -27,7 +27,14 @@ let testData = {
       const testBioData = testData.bio
       const shortenedBio = shortenBio(testBioData);
       expect(shortenedBio).toBe(
-        "About the Speaker: Nulla ut erat id mauris vulputate elementum. Nullam varius."
+        "About the Speaker: Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi..."
       );
     });
-  });
+
+    it("convertLength", () => {
+      const testLength = testData.length;
+      const formattedLength = convertLength(testLength);
+      expect(formattedLength).toStrictEqual([1,5]);
+    }); 
+  })
+ 
